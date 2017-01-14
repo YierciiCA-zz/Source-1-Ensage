@@ -4,4 +4,5 @@
 
 # All Credits Goes To:
 
-Zynox, Nova, Deadscale, DLdota, edwynxero, HiRusSai, MaZaiPC, Moones, Phantometry, RatchyZanko, Staskkk, theklausnomi, 
+Zynox, NOVA, Deadscale, DeadlyLUA, edwynxero, HiRusSai, MaZaiPC, Moones,  P H A N T O M E T R Y, Hexadecimal, Staskkk, theklausnomi, Sophylax, bruninjaman, Fodder, VickTheRock, Coverman, DarkPower, blaxpirit123, Blacky, Swift, iKamus, raphaelpdc, ALIEN, kj2a...,
+
