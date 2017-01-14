@@ -1,5 +1,3 @@
---<<show ability range. d.l.>>
-
 require("libs.ScriptConfig")
 require("libs.Utils")
 

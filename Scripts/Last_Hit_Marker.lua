@@ -1,4 +1,4 @@
---<<If the icon has become a color that mean that creep dies from your attack d.l.>>
+--<<If the icon has become a color that mean that creep dies from your attack>>
 --lash hit marker
 require("libs.ScriptConfig")
 require("libs.Utils")

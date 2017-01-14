@@ -1,4 +1,3 @@
---<<ez kills d.l.>>
 require("libs.Utils")
 require("libs.ScriptConfig")
 

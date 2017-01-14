@@ -1,4 +1,4 @@
---<<Show spawn boxes blocking areas d.l.>>
+--<<Show spawn boxes blocking areas>>
 require("libs.Utils")
 require("libs.ScriptConfig")
 

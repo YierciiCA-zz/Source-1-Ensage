@@ -1,5 +1,3 @@
---<<ясно понятно d.l.>>
-
 require("libs.ScriptConfig")
 config = ScriptConfig.new()
 config:SetParameter("Heroes", "techies")

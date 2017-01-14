@@ -1,0 +1,291 @@
+--<<Thanks for the idea autoult MazaiPC. Use auto ult at your own risk.)>>
+require("libs.Utils")
+require("libs.TargetFind")
+require("libs.HotkeyConfig2")
+require("libs.Skillshot")
+require("libs.Animations2")
+
+ScriptConfig = ConfigGUI:New(script.name)
+script:RegisterEvent(EVENT_KEY, ScriptConfig.Key, ScriptConfig)
+script:RegisterEvent(EVENT_TICK, ScriptConfig.Refresh, ScriptConfig)
+ScriptConfig:SetName("Gyrocopter")
+ScriptConfig:SetExtention(-.3)
+ScriptConfig:SetVisible(false)
+ 
+ScriptConfig:AddParam("Hotkey","Key",SGC_TYPE_ONKEYDOWN,false,false,68)
+ScriptConfig:AddParam("Ult","Ult",SGC_TYPE_TOGGLE,false,true,nil)
+ScriptConfig:AddParam("Auto","[BETA] Auto Ulti",SGC_TYPE_TOGGLE,false,true,nil)
+ScriptConfig:AddParam("Blink","UseBlink",SGC_TYPE_TOGGLE,false,true,nil)
+ScriptConfig:AddParam("BkB","BkB",SGC_TYPE_TOGGLE,false,true,nil)
+ 
+ 
+local play, target, castQueue, castsleep, sleep = false, nil, {}, 0, 0
+ 
+function Main(tick)
+    if not PlayingGame() then return end
+        local me = entityList:GetMyHero()
+        local ID = me.classId if ID ~= myhero then return end
+        for i=1,#castQueue,1 do
+                local v = castQueue[1]
+                table.remove(castQueue,1)
+                local ability = v[2]
+                if type(ability) == "string" then
+ability = me:FindItem(ability)
+                end
+                if ability and ((me:SafeCastAbility(ability,v[3],false)) or (v[4] and ability:CanBeCasted())) then
+                        if v[4] and ability:CanBeCasted() then
+me:CastAbility(ability,v[3],false)
+                        end
+castsleep = tick + v[1]
+                        return
+						
+                end
+        end
+
+   if ScriptConfig.Hotkey and tick > sleep then
+		target = targetFind:GetClosestToMouse(100)
+                if (target and target.alive and target.health > 0) and GetDistance2D(target,me) <= 2000 and not target:DoesHaveModifier("modifier_item_blade_mail_reflect") and not target:DoesHaveModifier("modifier_item_lotus_orb_active") and not target:IsMagicImmune() then
+                        local Q, W, E, R  = me:GetAbility(1), me:GetAbility(2), me:GetAbility(3) , me:GetAbility(5)
+                        local distance = GetDistance2D(target,me)
+                        local shiva = me:FindItem("item_shivas_guard")
+                        local sheep = me:FindItem("item_sheepstick")
+                        local slow = target:DoesHaveModifier("modifier_item_ethereal_blade_slow")
+                        local linkens = target:IsLinkensProtected()
+                        local blink = me:FindItem("item_blink")
+						local cheese = me:FindItem("item_cheese")
+						local medall = me:FindItem("item_medallion_of_courage") or me:FindItem("item_solar_crest")
+						local satanic = me:FindItem("item_satanic")
+						local bkb = me:FindItem("item_black_king_bar")
+						local mail = me:FindItem("item_blade_mail")
+						local halberd = me:FindItem("item_heavens_halberd")
+						local abyssal = me:FindItem("item_abyssal_blade")
+                        local attackRange = me.attackRange
+                        local RangeBlink = 1400
+                        if (ScriptConfig.Blink) and GetDistance2D(me,target) <= RangeBlink and blink and blink:CanBeCasted() and me:CanCast() and distance > attackRange and not blink.abilityPhase then
+                                table.insert(castQueue,{1000+math.ceil(blink:FindCastPoint()*1000),blink,target.position})        
+                        end
+                        if  E and E:CanBeCasted() or  target:IsMagicImmune() then
+							local heroes = entityList:GetEntities(function (v) return v.type==LuaEntity.TYPE_HERO and v.alive and v.visible and v.team~=me.team and me:GetDistance2D(v) <= 990 end)
+								if #heroes > 2 then
+							table.insert(castQueue,{100,E})
+				
+								end
+						end
+						if medall and medall:CanBeCasted() and me:CanCast()  and not inv then
+							table.insert(castQueue,{1000+math.ceil(medall:FindCastPoint()*1000),medall,target})
+						end
+						if (ScriptConfig.BkB) and bkb and bkb:CanBeCasted() then
+								local heroes = entityList:GetEntities(function (v) return v.type==LuaEntity.TYPE_HERO and v.alive and v.visible and v.team~=me.team and me:GetDistance2D(v) <= 800 end)
+							if #heroes > 3 then
+								table.insert(castQueue,{100,bkb})
+							end
+						end
+						if abyssal and abyssal:CanBeCasted() and me:CanCast() then
+							table.insert(castQueue,{math.ceil(abyssal:FindCastPoint()*1000),abyssal,target})
+						end
+						if  mail and mail:CanBeCasted() then
+							local heroes = entityList:GetEntities(function (v) return v.type==LuaEntity.TYPE_HERO and v.alive and v.visible and v.team~=me.team and me:GetDistance2D(v) <= 700 end)
+							if #heroes > 3 then
+								table.insert(castQueue,{100,mail})
+							end
+						end
+						if halberd and halberd:CanBeCasted() and me:CanCast() then
+								table.insert(castQueue,{1000+math.ceil(halberd:FindCastPoint()*1000),halberd,target})
+						end
+                        if shiva and shiva:CanBeCasted() and distance <= 600 then
+                                table.insert(castQueue,{100,shiva})
+                        end
+						if  cheese and cheese:CanBeCasted() and me.health/me.maxHealth <= 0.2 and distance <= attackRange+600 then
+							table.insert(castQueue,{100,cheese})
+						end	
+						if satanic and satanic:CanBeCasted() and me.health/me.maxHealth <= 0.3 and distance <= attackRange+200 then
+							table.insert(castQueue,{100,satanic})
+						end
+                        if sheep and sheep:CanBeCasted() and me:CanCast() then
+                                table.insert(castQueue,{math.ceil(sheep:FindCastPoint()*800),sheep,target})
+                        end
+                        if Q and Q:CanBeCasted() and me:CanCast() and distance <= 400 then
+                                table.insert(castQueue,{1000+math.ceil(Q:FindCastPoint()*1000),Q})
+                        end
+                        if W and W:CanBeCasted() and me:CanCast() then
+                                table.insert(castQueue,{1000+math.ceil(W:FindCastPoint()*1000),W,target})        
+                        end
+                        if ScriptConfig.Ult and  (target:IsStunned() or IsStopMove(target) or IsSlowMove(target)) or  target:IsMagicImmune() and R and R:CanBeCasted() and me:CanCast() and target.health > target.maxHealth*0.2  then
+                                local CP = R:FindCastPoint()
+                                local speed =1200  
+                                local distance = GetDistance2D(target, me)
+                                local delay =600+client.latency
+                                local xyz = SkillShot.SkillShotXYZ(me,target,delay,speed)
+                                        if xyz and distance <= 1200  then  
+me:SafeCastAbility(R, xyz)
+Sleep(me:GetTurnTime(target)*1000, "casting")
+                                        end
+                        end
+                        if not slow then
+me:Attack(target)
+                        elseif slow then
+me:Follow(target)
+                        end
+sleep = tick + 300
+                end
+        end
+end
+
+
+function Mains(tick)
+if  ScriptConfig.Auto then
+		me = entityList:GetMyHero()
+		if not me then return end
+		if  not SleepCheck()  then return end
+			local me = entityList:GetMyHero()
+			local ID = me.classId if ID ~= myhero then return end
+			target = v
+			for i=1,#castQueue,1 do
+					local v = castQueue[1]
+					table.remove(castQueue,1)
+					local ability = v[2]
+					if type(ability) == "string" then
+					ability = me:FindItem(ability)
+								end
+								if ability and ((me:SafeCastAbility(ability,v[3],false)) or (v[4] and ability:CanBeCasted())) then
+										if v[4] and ability:CanBeCasted() then
+				me:CastAbility(ability,v[3],false)
+								end
+				castsleep = tick + v[1]
+							return
+							end
+					end
+				
+		local R = me:GetAbility(5)
+		local W = me:GetAbility(2)
+		local Q = me:GetAbility(1)
+		target = targetFind:GetClosestToMouse(100)
+		local distance = GetDistance2D(target,me)
+		
+		if W and W:CanBeCasted() and me:CanCast() and distance <= 160  and SleepCheck("allcast4") then
+																table.insert(castQueue,{1000+math.ceil(W:FindCastPoint()*1000),W,target})  
+																	Sleep(client.latency+300,"allcast4")																
+															end
+															if Q and Q:CanBeCasted() and me:CanCast() and distance <= 160  and SleepCheck("allcast4") then
+																table.insert(castQueue,{1000+math.ceil(Q:FindCastPoint()*1000),Q})
+																	Sleep(client.latency+300,"allcast4")																	
+															end
+		if me.mana >= me.maxMana*0.5 and IsSlowMove(target) or target:IsStunned() or IsStopMove(target) or target:IsHexed() and not NoUse(target) and target.health > target.maxHealth*0.3  and not target:IsMagicImmune() and SleepCheck() then
+			local enemies = entityList:GetEntities(function(v) return v.type == LuaEntity.TYPE_HERO and v.team == me:GetEnemyTeam() and v.visible and not v.illusion and v.alive  end)
+				for i,target in ipairs(enemies)  do
+				
+															if (IsStopMove(target) or target:IsStunned()) and not NoUse(target) and R and R:CanBeCasted() and me:CanCast() and target.health > target.maxHealth*0.2 and SleepCheck("allcast4") then
+																local CP = R:FindCastPoint()
+																local speed =1200  
+																local distance = GetDistance2D(target, me)
+																local delay = client.latency+50
+																local xyz = SkillShot.SkillShotXYZ(me,target,delay,speed)
+																	if xyz and distance <= 1200  then  
+																		me:SafeCastAbility(R, xyz)
+																	Sleep(client.latency+200,"allcast4")
+																	end
+															end
+															
+															if IsSlowMove(target) or target:IsHexed() and not NoUse(target) and R and R:CanBeCasted() and me:CanCast() and target.health > target.maxHealth*0.2 and SleepCheck("allcast4")  then
+																local CP = R:FindCastPoint()
+																local speed =1200  
+																local distance = GetDistance2D(target, me)
+																local delay = client.latency+500
+																local xyz = SkillShot.SkillShotXYZ(me,target,delay,speed)
+																	if xyz and distance <= 1200  then  
+																		me:SafeCastAbility(R, xyz)
+																	Sleep(client.latency+200,"allcast4")
+																	end
+															end
+												end
+									end		
+						end
+			end
+
+function NoUse(target)
+        return  target:DoesHaveModifier("modifier_rune_haste")
+			or target:DoesHaveModifier("modifier_lycan_shapeshift_speed")
+			or target:DoesHaveModifier("modifier_centaur_stampede") 
+end
+
+function IsStopMove(target)
+        return  target:DoesHaveModifier("modifier_crystal_maiden_frostbite_ministun")
+			or target:DoesHaveModifier("modifier_winter_wyvern_winters_curse")
+			or target:DoesHaveModifier("modifier_axe_berserkers_call") 
+			or target:DoesHaveModifier("modifier_legion_commander_duel")
+			or target:DoesHaveModifier("modifier_ember_spirit_searing_chains")
+			or target:DoesHaveModifier("modifier_lone_druid_spirit_bear_entangle_effect")
+			or target:DoesHaveModifier("modifier_naga_siren_ensnare")
+			or target:DoesHaveModifier("modifier_rubick_telekinesis")
+			or target:DoesHaveModifier("modifier_shadow_shaman_shackles")
+			or target:DoesHaveModifier("modifier_storm_spirit_electric_vortex_pull")
+			or target:DoesHaveModifier("modifier_winter_wyvern_cold_embrace")
+			or target:DoesHaveModifier("modifier_bane_fiends_grip")
+end
+
+function IsSlowMove(target)
+        return  target:DoesHaveModifier("modifier_item_diffusal_blade_slow")
+                or target:DoesHaveModifier("modifier_item_ethereal_blade_slow")
+				or target:DoesHaveModifier("modifier_item_rod_of_atos_debuff")
+                or target:DoesHaveModifier("modifier_kunkka_torrent_slow")
+                or target:DoesHaveModifier("modifier_faceless_void_time_walk_slow")
+                or target:DoesHaveModifier("modifier_lich_slow")
+                or target:DoesHaveModifier("modifier_templar_assassin_trap_slow")
+                or target:DoesHaveModifier("modifier_terrorblade_reflection_slow")
+                or target:DoesHaveModifier("modifier_troll_warlord_whirling_axes_slow")
+                or target:DoesHaveModifier("modifier_tusk_walrus_punch_slow")
+                or target:DoesHaveModifier("modifier_viper_viper_strike_slow")
+                or target:DoesHaveModifier("modifier_crystal_maiden_freezing_field_slow")
+                or target:DoesHaveModifier("modifier_drow_ranger_frost_arrows_slow")
+                or target:DoesHaveModifier("modifier_ghost_frost_attack_slow")
+                or target:DoesHaveModifier("modifier_gyrocopter_call_down_slow")
+                or target:DoesHaveModifier("modifier_huskar_life_break_slow")
+                or target:DoesHaveModifier("modifier_invoker_ice_wall_slow_debuff")
+				or target:DoesHaveModifier("modifier_axe_berserkers_call_armor")
+				or target:DoesHaveModifier("modifier_dazzle_poison_touch")
+				or target:DoesHaveModifier("modifier_earth_spirit_rolling_boulder_slow")
+				or target:DoesHaveModifier("modifier_elder_titan_earth_splitter")
+				or target:DoesHaveModifier("modifier_enchantress_enchant_slow")
+				or target:DoesHaveModifier("modifier_life_stealer_open_wounds")
+				or target:DoesHaveModifier("modifier_magnataur_skewer_slow")
+				or target:DoesHaveModifier("modifier_night_stalker_void")
+				or target:DoesHaveModifier("modifier_omniknight_degen_aura_effect")
+				or target:DoesHaveModifier("modifier_phantom_assassin_stiflingdagger")
+				or target:DoesHaveModifier("modifier_pugna_decrepify")
+				or target:DoesHaveModifier("modifier_shadow_demon_purge_slow")
+				or target:DoesHaveModifier("modifier_tidehunter_gush")
+				or target:DoesHaveModifier("modifier_tusk_frozen_sigil_aura")
+				or target:DoesHaveModifier("modifier_ursa_earthshock")
+				or target:DoesHaveModifier("modifier_venomancer_venomous_gale")
+				or target:DoesHaveModifier("modifier_warlock_upheaval")
+end
+ 
+function Load()
+        if PlayingGame() then
+                local me = entityList:GetMyHero()
+                if not me or me.classId ~= CDOTA_Unit_Hero_Gyrocopter then
+script:Disable()
+                else
+play, target, myhero = true, nil, me.classId
+ScriptConfig:SetVisible(true)
+script:RegisterEvent(EVENT_TICK, Main)
+script:RegisterEvent(EVENT_TICK, Mains)
+script:UnregisterEvent(Load)
+                end
+        end
+end
+ 
+function Close()
+target, myhero = nil, nil
+ScriptConfig:SetVisible(false)
+        collectgarbage("collect")
+        if play then
+script:UnregisterEvent(Main)
+script:UnregisterEvent(Mains)
+script:RegisterEvent(EVENT_TICK,Load)
+play = false
+        end
+end
+ 
+script:RegisterEvent(EVENT_CLOSE, Close)
+script:RegisterEvent(EVENT_TICK, Load)

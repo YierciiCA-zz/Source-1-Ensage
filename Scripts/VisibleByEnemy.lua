@@ -1,4 +1,4 @@
---<<Blue circle appear if enemy can see u. (Is also a part of "Overlay Information" script) d.l.>>
+--<<Blue circle appear if enemy can see u. (Is also a part of "Overlay Information" script)>>
 local eff = {}
 local sleeptick = 0
 

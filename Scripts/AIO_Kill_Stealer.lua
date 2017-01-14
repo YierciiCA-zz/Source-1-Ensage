@@ -1,4 +1,4 @@
---<<Automatically kill enemy as soon as their health drops low enough. d.l.>>
+--<<Automatically kill enemy as soon as their health drops low enough>>
 
 -- a lot of improve. (performance,calculation,prediction)
 require("libs.ScriptConfig")
@@ -8,7 +8,7 @@ require("libs.SideMessage")
 config = ScriptConfig.new()
 config:SetParameter("Active", "Z", config.TYPE_HOTKEY)
 config:SetParameter("GlobalKey", "H", config.TYPE_HOTKEY)
-config:SetParameter("AutoGlobalSpells", true)
+config:SetParameter("AutoGlobalSpells", false)
 config:SetParameter("MinTarget4AutoKill", 2)
 config:Load()
 
@@ -66,7 +66,18 @@ function Tick(tick)
 	local ID = me.classId
 	if ID ~= myhero then GameClose() end
 
-	Sleep(100) 
+	if not dmgg then 
+		Sleep(150) 
+	else
+		Sleep(50)
+		local pl = entityList:GetMyPlayer()
+		if pl.orderId == 6 and pl.target then
+			if pl.target.health > dmgg then
+				me:Stop()		
+				me:Stop(true)
+			end
+		end
+	end
 
 	dmgCalc.visible = draw
 	rect.visible,icon.visible = activ,activ
@@ -505,22 +516,22 @@ end
 function KillMines(me,ability,damage,adamage,comp,id)
 	local Spell = me:GetAbility(ability)
 	icon.textureId = drawMgr:GetTextureId("NyanUI/spellicons/"..Spell.name)
-	local count = {}	
+	local count = {}
 	if Spell.level > 0 then
 		local Dmg = GetDmg(Spell.level,me,damage,adamage)
 		local DmgT = GetDmgType(Spell.dmgType)
 		local CastPoint = Spell:FindCastPoint() + client.latency/1000
+		local Channel = me:IsChanneling()
 		local enemies = entityList:GetEntities({type=LuaEntity.TYPE_HERO,team = 5-me.team})		
-		local mines = entityList:GetEntities(function (v) return v.classId == CDOTA_NPC_TechiesMines and v.alive and v.maxHealth == 200 end)  -- все мины
-		local fs = me:FindItem("item_force_staff") local fullactive = activ and (AutoGlobal or combo) 
+		local mines = entityList:GetEntities(function (v) return v.classId == CDOTA_NPC_TechiesMines and v.alive and v.maxHealth == 200 end)
 		for z,x in ipairs(mines) do if not mine[x.handle] then mine[x.handle] = Dmg end end
-		for i,v in ipairs(enemies) do
+		for i,v in ipairs(enemies) do				
 			if v.healthbarOffset ~= -1 and not v:IsIllusion() then
 				local hand = v.handle
 				if not heroG[hand] then
 					heroG[hand] = drawMgr:CreateText(20*shft,-58*shft, 0xFF99FF99, "",F14) heroG[hand].visible = false heroG[hand].entity = v heroG[hand].entityPosition = Vector(0,0,v.healthbarOffset)
 				end
-				if v.visible and v.alive and v.health > 0 then
+				if v.visible and v.alive and v.health > 0 then					
 					local DmgS = 0
 					local DmgF = 0					
 					local exploit = {}
@@ -534,7 +545,7 @@ function KillMines(me,ability,damage,adamage,comp,id)
 									note[hand] = true
 									GenerateSideMessage(v.name,Spell.name)
 								end
-								if fullactive then
+								if activ and (AutoGlobal or combo) then
 									for a,s in ipairs(exploit) do
 										s:CastAbility(s:GetAbility(1))										
 									end
@@ -543,27 +554,13 @@ function KillMines(me,ability,damage,adamage,comp,id)
 								end
 								break
 							end	
-						end
-					end						
+						end 
+					end
 					heroG[hand].text = " "..DmgF
 					heroG[hand].color = GetColor(DmgF)
 					heroG[hand].visible = draw
-					if fs and fs:CanBeCasted() and GetDistance2D(me,v) < 800 then
-						local newpos = Vector(v.position.x + 600 * math.cos(v.rotR), v.position.y + 600 * math.sin(v.rotR), v.position.z)
-						for z,x in ipairs(mines) do 
-							if GetDistance2D(x,newpos) < 425 then
-								DmgS = DmgS + mine[x.handle]
-								DmgF = v.health - math.floor(v:DamageTaken(DmgS,DmgT,me))
-								if DmgF < -1 then
-									if fullactive then
-										me:CastAbility(fs,v) break
-									end
-								end
-							end
-						end
-					end
 				elseif heroG[hand].visible then
-					heroG[hand] = false
+					heroG[hand].visible = false
 					note[hand] = false
 				end
 			end
@@ -957,18 +954,6 @@ function KSCastSpell(spell,target,me,lsblock)
 		end
 		SelectBack(prev)
 	end
-end
-
-function GetXX(c)
-	local c = math.sqrt(math.pow(c,2))
-	if c <= 9 then 
-		return 5 
-	elseif c <= 99 then 
-		return 3 
-	elseif c >= 1000 then 
-		return -4 
-	end 
-	return 0
 end
 
 function KSCastSpellSF(spell,target,me)

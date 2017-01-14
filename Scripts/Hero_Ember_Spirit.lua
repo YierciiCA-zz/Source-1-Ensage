@@ -1,4 +1,4 @@
---<<Auto Q after W. Hold W (default) when ember uses fist. d.l.>>
+--<<Auto Q after W. Hold W (default) when ember uses fist>>
 
 require("libs.Utils")
 require("libs.ScriptConfig")

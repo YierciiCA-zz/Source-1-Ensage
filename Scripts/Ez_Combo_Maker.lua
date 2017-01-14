@@ -1,4 +1,4 @@
---<<mb work or not. no matter. d.l.>>
+--<<EZ like ti3 for alliance xD. gui only for 16x9. описание в начале кода скрипта>>
 
 --randomly found an old script, maybe someone will be useful
 --screen http://imgur.com/GZPbl5G,RIyiEvZ,5gpiyzg#0

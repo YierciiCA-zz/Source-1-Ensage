@@ -1,0 +1,30 @@
+-- by kj2a.
+-- require("libs.Neutrals")
+names = {
+	npc_dota_neutral_kobold = {Name = "Kobold"},
+	npc_dota_neutral_kobold_tunneler = {Name = "Kobold Soldier"},
+	npc_dota_neutral_kobold_taskmaster = {Name = "Kobold Foreman"},
+	npc_dota_neutral_centaur_outrunner = {Name = "Centaur Courser"},
+	npc_dota_neutral_centaur_khan = {Name = "Centaur Conqueror"},
+	npc_dota_neutral_fel_beast = {Name = "Fell Spirit"},
+	npc_dota_neutral_polar_furbolg_champion = {Name = "Hellbear"},
+	npc_dota_neutral_polar_furbolg_ursa_warrior = {Name = "Hellbear Smasher"},
+	npc_dota_neutral_mud_golem = {Name = "Mud Golem"},
+	npc_dota_neutral_ogre_mauler = {Name = "Ogre Bruiser"},
+	npc_dota_neutral_ogre_magi = {Name = "Ogre Frostmage"},
+	npc_dota_neutral_giant_wolf = {Name = "Giant Wolf"},
+	npc_dota_neutral_alpha_wolf = {Name = "Alpha Wolf"},
+	npc_dota_neutral_wildkin = {Name = "Wildwing"},
+	npc_dota_neutral_enraged_wildkin = {Name = "Wildwing Ripper"},
+	npc_dota_neutral_satyr_soulstealer = {Name = "Satyr Mindstealer"},
+	npc_dota_neutral_satyr_hellcaller = {Name = "Satyr Tormenter"},
+	npc_dota_neutral_gnoll_assassin = {Name = "Vhoul Assassin"},
+	npc_dota_neutral_ghost = {Name = "Ghost"},
+	npc_dota_neutral_dark_troll = {Name = "Hill Troll"},
+	npc_dota_neutral_dark_troll_warlord = {Name = "Dark Troll Summoner"},
+	npc_dota_neutral_satyr_trickster = {Name = "Satyr Banisher"},
+	npc_dota_neutral_forest_troll_berserker = {Name = "Hill Troll Berserker"},
+	npc_dota_neutral_forest_troll_high_priest = {Name = "Hill Troll Priest"},
+	npc_dota_neutral_harpy_scout = {Name = "Harpy Scout"},
+	npc_dota_neutral_harpy_storm = {Name = "Harpy Stormcrafter"}
+}

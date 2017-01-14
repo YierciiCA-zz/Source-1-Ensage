@@ -1,4 +1,4 @@
---<<Venomancer plague ward automatically attack heroes without debuff. d.l.>>
+--<<Venomancer plague ward automatically attack heroes without debuff>>
 require("libs.Utils")
 
 function Tick(tick)
