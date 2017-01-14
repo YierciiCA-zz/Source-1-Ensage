@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "NyanUI/modifier_textures/gyrocopter_flak_cannon"
+	"$translucent" 1
+}

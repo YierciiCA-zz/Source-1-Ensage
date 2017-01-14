@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "NyanUI/modifier_textures/beastmaster_boar_poison"
+	"$translucent" 1
+}

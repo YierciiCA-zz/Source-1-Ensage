@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "NyanUI/modifier_textures/razor_plasma_field"
+	"$translucent" 1
+}

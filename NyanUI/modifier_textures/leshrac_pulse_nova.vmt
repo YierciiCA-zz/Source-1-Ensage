@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "NyanUI/modifier_textures/leshrac_pulse_nova"
+	"$translucent" 1
+}

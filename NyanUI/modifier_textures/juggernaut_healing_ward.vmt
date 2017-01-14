@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "NyanUI/modifier_textures/juggernaut_healing_ward"
+	"$translucent" 1
+}

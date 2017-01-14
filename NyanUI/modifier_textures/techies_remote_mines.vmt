@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "NyanUI/modifier_textures/techies_remote_mines"
+	"$translucent" 1
+}

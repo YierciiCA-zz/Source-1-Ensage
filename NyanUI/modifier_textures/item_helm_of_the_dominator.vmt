@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "NyanUI/modifier_textures/item_helm_of_the_dominator"
+	"$translucent" 1
+}

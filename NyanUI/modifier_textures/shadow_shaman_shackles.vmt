@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "NyanUI/modifier_textures/shadow_shaman_shackles"
+	"$translucent" 1
+}

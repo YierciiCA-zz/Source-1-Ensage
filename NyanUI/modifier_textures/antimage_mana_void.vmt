@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "NyanUI/modifier_textures/antimage_mana_void"
+	"$translucent" 1
+}

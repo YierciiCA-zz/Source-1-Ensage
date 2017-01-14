@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "NyanUI/modifier_textures/phoenix_sun_ray_toggle_move_empty"
+	"$translucent" 1
+}

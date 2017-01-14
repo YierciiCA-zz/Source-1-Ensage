@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "NyanUI/modifier_textures/death_prophet_carrion_swarm"
+	"$translucent" 1
+}

@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "NyanUI/modifier_textures/slardar_amplify_damage"
+	"$translucent" 1
+}

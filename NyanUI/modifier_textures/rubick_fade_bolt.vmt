@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "NyanUI/modifier_textures/rubick_fade_bolt"
+	"$translucent" 1
+}

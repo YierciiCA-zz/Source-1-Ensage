@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "NyanUI/modifier_textures/item_ogre_axe"
+	"$translucent" 1
+}

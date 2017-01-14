@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "NyanUI/modifier_textures/greevil_poison_nova"
+	"$translucent" 1
+}

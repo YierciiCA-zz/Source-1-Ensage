@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "NyanUI/modifier_textures/modifier_magicimmune"
+	"$translucent" 1
+}

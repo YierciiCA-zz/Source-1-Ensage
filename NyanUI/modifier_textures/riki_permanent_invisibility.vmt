@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "NyanUI/modifier_textures/riki_permanent_invisibility"
+	"$translucent" 1
+}

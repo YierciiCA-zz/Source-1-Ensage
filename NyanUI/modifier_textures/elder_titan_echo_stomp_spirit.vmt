@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "NyanUI/modifier_textures/elder_titan_echo_stomp_spirit"
+	"$translucent" 1
+}

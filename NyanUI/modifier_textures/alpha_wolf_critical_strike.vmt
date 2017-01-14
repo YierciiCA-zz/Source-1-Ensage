@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "NyanUI/modifier_textures/alpha_wolf_critical_strike"
+	"$translucent" 1
+}

@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "NyanUI/modifier_textures/item_belt_of_strength"
+	"$translucent" 1
+}

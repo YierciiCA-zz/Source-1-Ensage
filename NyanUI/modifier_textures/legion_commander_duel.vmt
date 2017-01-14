@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "NyanUI/modifier_textures/legion_commander_duel"
+	"$translucent" 1
+}

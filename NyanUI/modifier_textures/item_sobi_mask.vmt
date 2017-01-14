@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "NyanUI/modifier_textures/item_sobi_mask"
+	"$translucent" 1
+}

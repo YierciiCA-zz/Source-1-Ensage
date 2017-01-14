@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "NyanUI/modifier_textures/dragon_knight_breathe_fire"
+	"$translucent" 1
+}

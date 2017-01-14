@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "NyanUI/modifier_textures/rattletrap_rocket_flare"
+	"$translucent" 1
+}

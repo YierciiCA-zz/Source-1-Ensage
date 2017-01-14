@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "NyanUI/modifier_textures/backdoor_protection_in_base"
+	"$translucent" 1
+}

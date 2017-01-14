@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "NyanUI/modifier_textures/ember_spirit_activate_fire_remnant"
+	"$translucent" 1
+}

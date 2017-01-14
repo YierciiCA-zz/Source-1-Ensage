@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "NyanUI/modifier_textures/tidehunter_kraken_shell"
+	"$translucent" 1
+}

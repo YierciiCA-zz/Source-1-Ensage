@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "NyanUI/modifier_textures/tinker_heat_seeking_missile"
+	"$translucent" 1
+}

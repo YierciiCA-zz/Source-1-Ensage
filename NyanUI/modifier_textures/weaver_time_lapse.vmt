@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "NyanUI/modifier_textures/weaver_time_lapse"
+	"$translucent" 1
+}

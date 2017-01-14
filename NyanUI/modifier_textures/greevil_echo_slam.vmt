@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "NyanUI/modifier_textures/greevil_echo_slam"
+	"$translucent" 1
+}

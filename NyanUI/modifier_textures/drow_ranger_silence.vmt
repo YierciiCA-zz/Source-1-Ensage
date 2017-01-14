@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "NyanUI/modifier_textures/drow_ranger_silence"
+	"$translucent" 1
+}

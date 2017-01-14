@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "NyanUI/modifier_textures/lycan_shapeshift"
+	"$translucent" 1
+}

@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "NyanUI/modifier_textures/venomancer_poison_nova"
+	"$translucent" 1
+}

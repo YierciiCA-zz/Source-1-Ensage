@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "NyanUI/modifier_textures/skeleton_king_vampiric_aura"
+	"$translucent" 1
+}

@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "NyanUI/modifier_textures/warlock_shadow_word"
+	"$translucent" 1
+}

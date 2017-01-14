@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "NyanUI/modifier_textures/oracle_false_promise"
+	"$translucent" 1
+}

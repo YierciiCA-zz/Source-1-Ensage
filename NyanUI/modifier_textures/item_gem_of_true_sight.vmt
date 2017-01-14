@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "NyanUI/modifier_textures/item_gem_of_true_sight"
+	"$translucent" 1
+}

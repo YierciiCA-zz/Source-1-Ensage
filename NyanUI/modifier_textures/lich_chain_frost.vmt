@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "NyanUI/modifier_textures/lich_chain_frost"
+	"$translucent" 1
+}

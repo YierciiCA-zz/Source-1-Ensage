@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "NyanUI/modifier_textures/wisp_overcharge"
+	"$translucent" 1
+}

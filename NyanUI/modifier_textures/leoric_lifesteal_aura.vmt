@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "NyanUI/modifier_textures/leoric_lifesteal_aura"
+	"$translucent" 1
+}

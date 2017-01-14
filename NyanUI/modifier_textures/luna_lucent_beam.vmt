@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "NyanUI/modifier_textures/luna_lucent_beam"
+	"$translucent" 1
+}

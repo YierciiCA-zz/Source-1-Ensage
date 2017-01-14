@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "NyanUI/modifier_textures/keeper_of_the_light_illuminate"
+	"$translucent" 1
+}

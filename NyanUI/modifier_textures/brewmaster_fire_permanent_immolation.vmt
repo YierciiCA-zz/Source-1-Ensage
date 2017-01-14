@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "NyanUI/modifier_textures/brewmaster_fire_permanent_immolation"
+	"$translucent" 1
+}

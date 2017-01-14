@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "NyanUI/modifier_textures/roshan_spell_block"
+	"$translucent" 1
+}

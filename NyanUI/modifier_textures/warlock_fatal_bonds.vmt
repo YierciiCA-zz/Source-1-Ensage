@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "NyanUI/modifier_textures/warlock_fatal_bonds"
+	"$translucent" 1
+}

@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "NyanUI/modifier_textures/greevil_ice_wall"
+	"$translucent" 1
+}

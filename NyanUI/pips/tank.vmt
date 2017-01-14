@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "NyanUI/pips/tank"
+	"$translucent" 1
+}

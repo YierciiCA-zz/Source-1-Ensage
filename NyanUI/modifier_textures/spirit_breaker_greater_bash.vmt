@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "NyanUI/modifier_textures/spirit_breaker_greater_bash"
+	"$translucent" 1
+}

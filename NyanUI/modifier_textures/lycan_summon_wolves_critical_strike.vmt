@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "NyanUI/modifier_textures/lycan_summon_wolves_critical_strike"
+	"$translucent" 1
+}

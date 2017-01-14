@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "NyanUI/modifier_textures/batrider_flaming_lasso"
+	"$translucent" 1
+}

@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "NyanUI/modifier_textures/techies_stasis_trap"
+	"$translucent" 1
+}

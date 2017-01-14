@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "NyanUI/modifier_textures/templar_assassin_refraction_damage"
+	"$translucent" 1
+}

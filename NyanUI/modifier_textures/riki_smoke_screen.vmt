@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "NyanUI/modifier_textures/riki_smoke_screen"
+	"$translucent" 1
+}

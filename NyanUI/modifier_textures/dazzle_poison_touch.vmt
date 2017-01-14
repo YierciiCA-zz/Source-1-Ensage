@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "NyanUI/modifier_textures/dazzle_poison_touch"
+	"$translucent" 1
+}

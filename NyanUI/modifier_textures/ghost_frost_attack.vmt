@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "NyanUI/modifier_textures/ghost_frost_attack"
+	"$translucent" 1
+}

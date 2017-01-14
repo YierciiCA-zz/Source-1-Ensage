@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "NyanUI/modifier_textures/rattletrap_power_cogs"
+	"$translucent" 1
+}

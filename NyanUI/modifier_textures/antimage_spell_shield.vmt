@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "NyanUI/modifier_textures/antimage_spell_shield"
+	"$translucent" 1
+}

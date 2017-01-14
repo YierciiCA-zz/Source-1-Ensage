@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "NyanUI/modifier_textures/slark_essence_shift"
+	"$translucent" 1
+}

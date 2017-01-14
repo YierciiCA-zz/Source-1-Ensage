@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "NyanUI/modifier_textures/faceless_void_time_walk"
+	"$translucent" 1
+}

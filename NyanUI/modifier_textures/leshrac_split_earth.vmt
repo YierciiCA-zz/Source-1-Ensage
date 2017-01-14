@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "NyanUI/modifier_textures/leshrac_split_earth"
+	"$translucent" 1
+}

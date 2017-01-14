@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "NyanUI/modifier_textures/shredder_reactive_armor"
+	"$translucent" 1
+}

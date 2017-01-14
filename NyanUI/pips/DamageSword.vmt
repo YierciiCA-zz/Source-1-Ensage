@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "NyanUI/pips/DamageSword"
+	"$translucent" 1
+}

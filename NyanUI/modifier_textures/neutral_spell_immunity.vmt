@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "NyanUI/modifier_textures/neutral_spell_immunity"
+	"$translucent" 1
+}

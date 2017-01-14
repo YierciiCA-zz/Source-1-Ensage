@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "NyanUI/modifier_textures/zuus_arc_lightning"
+	"$translucent" 1
+}

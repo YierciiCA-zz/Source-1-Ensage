@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "NyanUI/modifier_textures/lina_light_strike_array"
+	"$translucent" 1
+}

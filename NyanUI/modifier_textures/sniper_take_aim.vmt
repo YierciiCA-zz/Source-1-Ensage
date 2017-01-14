@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "NyanUI/modifier_textures/sniper_take_aim"
+	"$translucent" 1
+}

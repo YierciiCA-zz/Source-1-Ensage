@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "NyanUI/modifier_textures/juggernaut_omni_slash"
+	"$translucent" 1
+}

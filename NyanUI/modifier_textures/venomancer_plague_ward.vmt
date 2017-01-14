@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "NyanUI/modifier_textures/venomancer_plague_ward"
+	"$translucent" 1
+}

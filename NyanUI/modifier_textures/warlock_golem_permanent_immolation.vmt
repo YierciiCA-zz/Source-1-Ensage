@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "NyanUI/modifier_textures/warlock_golem_permanent_immolation"
+	"$translucent" 1
+}

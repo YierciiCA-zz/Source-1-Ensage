@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "NyanUI/modifier_textures/necrolyte_heartstopper_aura"
+	"$translucent" 1
+}

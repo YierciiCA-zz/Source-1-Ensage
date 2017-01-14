@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "NyanUI/modifier_textures/omniknight_degen_aura"
+	"$translucent" 1
+}

@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "NyanUI/modifier_textures/beastmaster_hawk_invisibility"
+	"$translucent" 1
+}

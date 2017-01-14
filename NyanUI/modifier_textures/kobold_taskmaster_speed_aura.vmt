@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "NyanUI/modifier_textures/kobold_taskmaster_speed_aura"
+	"$translucent" 1
+}

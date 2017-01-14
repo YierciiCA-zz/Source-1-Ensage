@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "NyanUI/modifier_textures/courier_take_stash_items"
+	"$translucent" 1
+}

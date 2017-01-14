@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "NyanUI/modifier_textures/puck_phase_shift"
+	"$translucent" 1
+}

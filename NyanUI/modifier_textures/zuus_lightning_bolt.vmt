@@ -1,0 +1,5 @@
+"LightmappedGeneric"
+{
+	"$basetexture" "NyanUI/modifier_textures/zuus_lightning_bolt"
+	"$translucent" 1
+}
